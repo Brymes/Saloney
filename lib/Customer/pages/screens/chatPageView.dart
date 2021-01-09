@@ -3,19 +3,19 @@ import 'package:starter_project/Customer/pages/screens/ReceivedMessageWidget.dar
 import 'package:starter_project/Customer/pages/screens/SendedMessageWidget.dart';
 
 
-class ChatPageView extends StatefulWidget {
+class CustomerChatPageView extends StatefulWidget {
   final String username;
 
-  const ChatPageView({
+  const CustomerChatPageView({
     Key key,
     this.username,
   }) : super(key: key);
 
   @override
-  _ChatPageViewState createState() => _ChatPageViewState();
+  _CustomerChatPageViewState createState() => _CustomerChatPageViewState();
 }
 
-class _ChatPageViewState extends State<ChatPageView> {
+class _CustomerChatPageViewState extends State<CustomerChatPageView> {
   TextEditingController _text = new TextEditingController();
   ScrollController _scrollController = ScrollController();
   var childList = <Widget>[];

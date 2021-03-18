@@ -5,6 +5,8 @@ import 'package:provider/provider.dart';
 import 'package:starter_project/intro_page.dart';
 
 import 'Salon/pages/auth/login.dart';
+import 'Salon/pages/screens/add_newservice.dart';
+import 'Salon/pages/screens/editProfile.dart';
 import 'core/provider/providers.dart';
 import 'core/routes/route_names.dart';
 import 'locator.dart';

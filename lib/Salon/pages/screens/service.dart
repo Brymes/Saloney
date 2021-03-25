@@ -77,7 +77,6 @@ class ServiceScreen extends StatelessWidget {
               child: Container(
                 child: TabBarView(
                   children: [
-
                     PublishedService(),
                     PublishedService(),
                   ],
@@ -95,55 +94,82 @@ class PublishedService extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DataTable(
-      headingRowColor: MaterialStateColor.resolveWith((states) => Colors.grey[300]),
+      headingRowColor:
+          MaterialStateColor.resolveWith((states) => Colors.grey[300]),
       columns: [
-        DataColumn(label: Text(
-            'Product Name',
-            style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)
-        )),
-        DataColumn(label: Text(
-            'Image',
-            style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)
-        )),
-        DataColumn(label: Text(
-            'Actions',
-            style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)
-        )),
+        DataColumn(
+            label: Text('Product Name',
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold))),
+        DataColumn(
+            label: Text('Image',
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold))),
+        DataColumn(
+            label: Text('Actions',
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold))),
       ],
       rows: [
-        for(int i = 0; i < 5; i++)
-        DataRow(cells: [
-          DataCell(
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: 5),
-                  Text('Carrot',
+        for (int i = 0; i < 5; i++)
+          DataRow(cells: [
+            DataCell(Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 5),
+                Text(
+                  'Carrot',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
-                  ),),
-                  SizedBox(height: 3),
-                  Text('DJNAZA',
-                    style: TextStyle(
-                      color: Colors.grey[400],
-                    ),
                   ),
-                ],
-              )
-          ),
-          DataCell(
-            SizedBox(
-              height: 50,
-    width: 50,
-      child: Image.asset('assets/2.png'),
-    ),
-
-          ),
-          DataCell(Icon(Icons.more_vert_outlined)),
-        ]),
+                ),
+                SizedBox(height: 3),
+                Text(
+                  'DJNAZA',
+                  style: TextStyle(
+                    color: Colors.grey[400],
+                  ),
+                ),
+              ],
+            )),
+            DataCell(
+              SizedBox(
+                height: 50,
+                width: 50,
+                child: Image.asset('assets/2.png'),
+              ),
+            ),
+            DataCell(IconButton(icon: Icon(Icons.more_vert_outlined), onPressed: () =>_showLoginInfoDialog(context: context),)),
+          ]),
       ],
     );
   }
-}
 
+  void _showLoginInfoDialog({String title, BuildContext context}) async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: true,
+      builder: (context) => AlertDialog(
+        title: Text("Options", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+        content: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ListTile(
+              title: Text("Edit"),
+              onTap: (){},
+            ),
+            Divider(height: 0, color: Colors.grey[800],),
+            ListTile(
+              title: Text("Delete"),
+              onTap: (){},
+            ),
+            Divider(height: 0, color: Colors.grey[800],),
+            ListTile(
+              title: Text("Publish"),
+              onTap: (){},
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}

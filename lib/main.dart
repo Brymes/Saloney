@@ -47,8 +47,8 @@ class MyApp extends StatelessWidget {
         theme: appThemeLight,
         routes: RouteNames.routes,
         // home: SalonLoginPage(),
-        initialRoute: RouteNames.introPage,
-        // home: ServiceScreen(),
+        // initialRoute: RouteNames.introPage,
+        home: ServiceScreen(),
         navigatorKey: Get.key,
       ),
     );
